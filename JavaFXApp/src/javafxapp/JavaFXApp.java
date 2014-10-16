@@ -6,6 +6,7 @@
 
 package javafxapp;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -19,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 /**
  *
@@ -26,8 +28,11 @@ import javafx.stage.StageStyle;
  */
 public class JavaFXApp extends Application {
     private ImageView bgImage;
+    private ImageView bgImage_bw;
     private ImageView quit;
     private Rectangle imgClip;
+    private Rectangle imgClip_bw;
+    private FadeTransition fadeTransition;
     private double sX = 0;
     private DoubleProperty coordXReal = new SimpleDoubleProperty(0);
     
@@ -40,9 +45,18 @@ public class JavaFXApp extends Application {
         imgClip.setArcHeight(40);
         imgClip.setArcWidth(30);
         bgImage.setClip(imgClip);
+        bgImage_bw = new ImageView(new Image(JavaFXApp.class.getResourceAsStream("images/1024_nature_10_bw.jpg")));
+        imgClip_bw = new Rectangle(300, 200);
+        imgClip_bw.setArcHeight(40);
+        imgClip_bw.setArcWidth(30);
+        bgImage_bw.setClip(imgClip_bw);
+        bgImage_bw.setOpacity(0.0);
+        fadeTransition = new FadeTransition(Duration.seconds(1), bgImage_bw);
+        fadeTransition.setFromValue(0.0);
+        fadeTransition.setToValue(1.0);
         setDrug();
         setQuit();
-        root.getChildren().addAll(bgImage, quit);
+        root.getChildren().addAll(bgImage, bgImage_bw, quit);
         
         Scene scene = new Scene(root, 300, 250);
         scene.setFill(null);
@@ -69,6 +83,40 @@ public class JavaFXApp extends Application {
             }
         });
         bgImage.xProperty().bind(coordXReal);
+        
+        bgImage_bw.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent t) {
+                //sX = t.getSceneX();
+                sX = t.getSceneX() - coordXReal.getValue();
+                System.err.println("[MousePressed] getSceneX: " + t.getSceneX() + "; sX: " + sX + "; coordXReal: " + coordXReal.getValue());
+            }
+        });
+        bgImage_bw.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent t) {
+                coordXReal.setValue(t.getSceneX() - sX);
+                System.err.println("[MouseDragged] getSceneX: " + t.getSceneX() + "; sX: " + sX + "; coordXReal: " + coordXReal.getValue());
+            }
+        });
+        bgImage_bw.xProperty().bind(coordXReal);
+        
+        bgImage_bw.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent t) {
+                //bgImage_bw.setOpacity(1.0);
+                fadeTransition.setRate(1.0);
+                fadeTransition.play();
+            }
+        });
+        bgImage_bw.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent t) {
+                //bgImage_bw.setOpacity(0.0);
+                fadeTransition.setRate(-1.0);
+                fadeTransition.play();
+            }
+        });
     }
 
     private void setQuit() {
