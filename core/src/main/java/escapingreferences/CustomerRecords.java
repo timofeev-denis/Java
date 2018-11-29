@@ -1,17 +1,26 @@
 package escapingreferences;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class CustomerRecords {
+class CustomerRecords {
 
-    private List<Customer> customers;
+    private final List<Customer> customers;
 
-    public CustomerRecords(List<Customer> customers) {
+    CustomerRecords(List<Customer> customers) {
         this.customers = customers;
     }
 
-    public List<Customer> getCustomers() {
-        return new ArrayList<Customer>(customers);
+    List<Customer> getNewCustomersCollection() {
+        return new ArrayList<>(customers);
+    }
+
+    List<Customer> getCustomers() {
+        return customers;
+    }
+
+    List<Customer> getReadOnlyCustomers() {
+        return Collections.unmodifiableList(this.customers);
     }
 }
