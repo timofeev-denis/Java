@@ -17,11 +17,10 @@ class CustomerRecordsTest {
 
     @BeforeEach
     void setUp() {
-        List<Customer> data = new ArrayList<Customer>() {{
-            add(new Customer("john", 21));
-            add(new Customer("bill", 48));
-            add(new Customer("adam", 33));
-        }};
+        List<Customer> data = new ArrayList<>();
+        data.add(new Customer("john", 21));
+        data.add(new Customer("bill", 48));
+        data.add(new Customer("adam", 33));
         records = new CustomerRecords(data);
     }
 
