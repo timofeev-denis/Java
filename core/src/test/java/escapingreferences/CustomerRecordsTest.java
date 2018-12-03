@@ -48,4 +48,28 @@ class CustomerRecordsTest {
         List<Customer> readOnlyCustomers = records.getReadOnlyCustomers();
         assertThrows(UnsupportedOperationException.class, readOnlyCustomers::clear);
     }
+
+    @Test
+    @DisplayName("Изменение строки, помещённой в коллекцию")
+    void stringMutability() {
+        List<String> data = new ArrayList<>();
+        String first = "FIRST";
+        data.add(first);
+
+        String s = data.get(0);
+        first = null;
+        assertEquals(s, "FIRST");
+    }
+
+    @Test
+    @DisplayName("Изменение объекта, помещённого в коллекцию")
+    void objectMutability() {
+        List<Customer> data = new ArrayList<>();
+        data.add(new Customer("John", 21));
+
+        Customer c = data.get(0);
+        c.setName("Anna");
+
+        assertEquals("Anna", data.get(0).getName());
+    }
 }
