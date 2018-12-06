@@ -1,4 +1,4 @@
-package escapingreferences;
+package memorymanagement;
 
 import java.util.ArrayList;
 import java.util.Collections;

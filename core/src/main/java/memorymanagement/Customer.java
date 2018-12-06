@@ -1,19 +1,19 @@
-package escapingreferences;
+package memorymanagement;
 
 public class Customer {
     private String name;
     private Integer age;
 
-    public Customer(String name, Integer age) {
+    Customer(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
