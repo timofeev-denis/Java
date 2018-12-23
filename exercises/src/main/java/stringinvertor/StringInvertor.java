@@ -10,7 +10,7 @@ class StringInvertor {
      */
     static String invert(String original) {
         StringBuilder result = new StringBuilder();
-        for(char c : original.toCharArray()) {
+        for (char c : original.toCharArray()) {
             result.insert(0, c);
         }
         return result.toString();
