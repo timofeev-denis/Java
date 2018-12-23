@@ -5,14 +5,13 @@ class StringInvertor {
     /**
      * Inverts string
      *
-     * @param original String to invertWithCharSwitching
+     * @param original String to invert
      * @return Inverted string
      */
-    static String invertWithCharSwitching(String original) {
-        StringBuilder result = new StringBuilder(original);
-        for (int i = 0; i <= original.length() / 2 - 1; i++) {
-            result.setCharAt(i, original.charAt(original.length() - i - 1));
-            result.setCharAt(original.length() - i - 1, original.charAt(i));
+    static String invert(String original) {
+        StringBuilder result = new StringBuilder();
+        for(char c : original.toCharArray()) {
+            result.insert(0, c);
         }
         return result.toString();
     }
