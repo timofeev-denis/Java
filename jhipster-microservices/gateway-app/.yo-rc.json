@@ -1,0 +1,33 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "ru.code4fun.demo"
+        },
+        "jhipsterVersion": "5.7.2",
+        "applicationType": "gateway",
+        "baseName": "gateway",
+        "packageName": "ru.code4fun.demo",
+        "packageFolder": "ru/code4fun/demo",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "hazelcast",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": "eureka",
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "ZTg2NjRiYzkwMzNjYTUyZDA2YTdmMGVmYWYzOTkwMDliZDFjZTEyYTBiYzVhMjU0ZmVhMzc0MTExN2YwZWNkMzBkYzNmZWJmOTRiYzdmMmI0YzgxOWE5NzdjYzRjMWZkMzFhYTU2ODE2N2ExNjY3ODRjMDVjNzdlODJlMmI3ZmY=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
