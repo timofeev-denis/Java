@@ -1,4 +1,4 @@
-package escapingreferences;
+package memorymanagement;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,11 +17,10 @@ class CustomerRecordsTest {
 
     @BeforeEach
     void setUp() {
-        List<Customer> data = new ArrayList<Customer>() {{
-            add(new Customer("john", 21));
-            add(new Customer("bill", 48));
-            add(new Customer("adam", 33));
-        }};
+        List<Customer> data = new ArrayList<>();
+        data.add(new Customer("john", 21));
+        data.add(new Customer("bill", 48));
+        data.add(new Customer("adam", 33));
         records = new CustomerRecords(data);
     }
 
@@ -48,5 +47,29 @@ class CustomerRecordsTest {
     void unmodifiableList() {
         List<Customer> readOnlyCustomers = records.getReadOnlyCustomers();
         assertThrows(UnsupportedOperationException.class, readOnlyCustomers::clear);
+    }
+
+    @Test
+    @DisplayName("Изменение строки, помещённой в коллекцию")
+    void stringMutability() {
+        List<String> data = new ArrayList<>();
+        String first = "FIRST";
+        data.add(first);
+
+        String s = data.get(0);
+        first = null;
+        assertEquals(s, "FIRST");
+    }
+
+    @Test
+    @DisplayName("Изменение объекта, помещённого в коллекцию")
+    void objectMutability() {
+        List<Customer> data = new ArrayList<>();
+        data.add(new Customer("John", 21));
+
+        Customer c = data.get(0);
+        c.setName("Anna");
+
+        assertEquals("Anna", data.get(0).getName());
     }
 }
