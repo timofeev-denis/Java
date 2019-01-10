@@ -2,7 +2,7 @@
     "generator-jhipster": {
         "promptValues": {
             "packageName": "ru.code4fun.demo",
-            "microservicePath": "../car-app"
+            "microservicePath": "../dealer-app"
         },
         "jhipsterVersion": "5.7.2",
         "applicationType": "gateway",
