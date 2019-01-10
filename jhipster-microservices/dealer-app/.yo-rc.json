@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ru.code4fun.demo"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "dealerapp",
+    "packageName": "ru.code4fun.demo",
+    "packageFolder": "ru/code4fun/demo",
+    "serverPort": "8082",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Mjc5NThmNzYyNzNkMzgwOWRmMWY1MWQ0NTQ0MjIzZTVkZTJmZjUzYmE1M2M2MzNhYzBhMjgzYzBkYmNiMjFhNzdmNGZlNzcwNjIwMzM3ZTRkYzRiMTk2Y2JlOGUwZDY2YzExZjNkYzMxZDAzNDcxZTBlNWMyZWM3ODhmMTU2NzM=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
