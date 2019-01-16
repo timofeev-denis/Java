@@ -1,6 +1,6 @@
-package staticmethod;
+package staticstaff;
 
-class ClassWithStaticMethod {
+class StaticMethod {
 
     static void foo() {
         System.out.println("Hello from static method");
