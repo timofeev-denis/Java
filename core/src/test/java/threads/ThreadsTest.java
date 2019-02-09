@@ -46,4 +46,20 @@ class ThreadsTest {
         MyThread threadRun = new MyThread("RUN");
         threadRun.run();
     }
+
+    @Test
+    void stringTest() {
+        String s0 = "asd";
+        String s1 = new String("asd").intern();
+        String s2 = new String("asd");
+        System.out.println(s1 == s0);
+    }
+
+    @Test
+    void integerTest() {
+        Integer i1 = Integer.valueOf(0);
+        Integer i0 = 0;
+        Integer i2 = new Integer(0);
+        System.out.println(i1 == i0);
+    }
 }
