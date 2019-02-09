@@ -6,7 +6,11 @@ package quicksort;
  */
 class QuickSort {
 
-    static void sort(int[] array, int begin, int end) {
+    static void sort(int[] array) {
+        sort(array, 0, array.length - 1);
+    }
+
+    private static void sort(int[] array, int begin, int end) {
         int b = begin, e = end;
         int pivot = array[b + (e - b) / 2];
         while (b < e) {
