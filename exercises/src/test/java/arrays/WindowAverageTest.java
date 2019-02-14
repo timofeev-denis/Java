@@ -37,10 +37,25 @@ class WindowAverageTest {
     }
 
     @Test
-    @DisplayName("Negative window throws exception")
+    @DisplayName("Negative window size throws exception")
     void negativeWindowThrowsException() {
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class, () -> WindowAverage.average(new int[]{1}, -1));
-        assertEquals("Window size cannot be negative", exception.getMessage());
+        assertEquals("Window size cannot be negative or equal to zero", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Zero window size throws exception")
+    void zeroWindowThrowsException() {
+        IllegalArgumentException exception =
+                assertThrows(IllegalArgumentException.class, () -> WindowAverage.average(new int[]{1}, 0));
+        assertEquals("Window size cannot be negative or equal to zero", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Calculate average value")
+    void getAverage() {
+        double average = WindowAverage.getAverage(new int[]{2, 2, 2}, 0, 2);
+        assertEquals(2, average);
     }
 }
