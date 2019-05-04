@@ -86,8 +86,28 @@ class ConverterTest {
     }
 
     @Test
+    void ninetyOneTest() {
+        assertEquals("XCI", converter.convert(91));
+    }
+
+    @Test
+    void fourteenTest() {
+        assertEquals("XIV", converter.convert(14));
+    }
+
+    @Test
+    void nineteenTest() {
+        assertEquals("XIX", converter.convert(19));
+    }
+
+    @Test
     void longNumberTest() {
         assertEquals("MMMCDLIX", converter.convert(3459));
+    }
+
+    @Test
+    void longNumber2Test() {
+        assertEquals("MCMXCIV", converter.convert(1994));
     }
 
     @Test

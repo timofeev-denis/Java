@@ -15,45 +15,40 @@ public class Converter {
             new RomanNumber("L", 50),
             new RomanNumber("C", 100),
             new RomanNumber("D", 500),
-            new RomanNumber("M", 1000),
+            new RomanNumber("M", 1000)
     };
 
     /**
      * Converts integer [1, 3999] to Roman notation
      * Argument must be within 9 and 3999.
      *
-     * @param x Number to convert
+     * @param num Number to convert
      * @return Value of argument in Roman notation
      */
-    public String convert(Integer x) {
-        assertValidArgument(x);
+    public String convert(Integer num) {
+        assertValidArgument(num);
         StringBuilder result = new StringBuilder();
         int digit = romanNumbers.length - 1;
-        while (x > 0 && digit >= 0) {
-            double divisionRemainder = (double) x / romanNumbers[digit].getNumber();
-
-            // 4, 40, 400
-            if (5 > divisionRemainder && divisionRemainder >= 4) {
+        while (num > 0 && digit >= 0) {
+            if (num / romanNumbers[digit].getNumber() == 0) {
+                digit--;
+                continue;
+            }
+            if (num.toString().startsWith("4")) {
                 result.append(romanNumbers[digit].getRomanChar());
                 result.append(romanNumbers[digit + 1].getRomanChar());
-                x -= romanNumbers[digit].getNumber() * 4;
+                num -= romanNumbers[digit].getNumber() * 4;
+                continue;
             }
-
-            // 9, 90, 900
-            if (2 > divisionRemainder && divisionRemainder >= 1.8) {
+            if (num.toString().startsWith("9")) {
                 result.append(romanNumbers[digit - 1].getRomanChar());
                 result.append(romanNumbers[digit + 1].getRomanChar());
-                x -= romanNumbers[digit + 1].getNumber() - romanNumbers[digit - 1].getNumber();
+                num -= romanNumbers[digit - 1].getNumber() * 9;
+                continue;
             }
-
-            while (x / romanNumbers[digit].getNumber() >= 1) {
-                result.append(romanNumbers[digit].getRomanChar());
-                x -= romanNumbers[digit].getNumber();
-            }
-
-            digit--;
+            result.append(romanNumbers[digit].getRomanChar());
+            num -= romanNumbers[digit].getNumber();
         }
-
         return result.toString();
     }
 
@@ -67,4 +62,5 @@ public class Converter {
             throw new IllegalArgumentException("Converted number must be within [0, 3999]");
         }
     }
+
 }
