@@ -1,3 +1,5 @@
+package parentheses;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Date: 27.04.2019
  */
 @DisplayName("Проверка валидатора строк из скобок")
-class BracesValidatorTest {
+class ParenthesesValidatorTest {
 
-    private BracesValidator validator;
+    private ParenthesesValidator validator;
 
     @BeforeEach
     void setUp() {
-        this.validator = new BracesValidator();
+        this.validator = new ParenthesesValidator();
     }
 
     @Test

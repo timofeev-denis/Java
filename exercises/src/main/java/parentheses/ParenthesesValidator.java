@@ -1,3 +1,5 @@
+package parentheses;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -6,13 +8,13 @@ import java.util.Stack;
  * Created by: Denis Timofeev
  * Date: 27.04.2019
  */
-class BracesValidator {
+class ParenthesesValidator {
 
-    private static Map<String, String> pairs = new HashMap<String, String>();
+    private static Map<String, String> pairs = new HashMap<>();
     private Stack<String> stack;
 
-    BracesValidator() {
-        stack = new Stack<String>();
+    ParenthesesValidator() {
+        stack = new Stack<>();
         pairs.put(")", "(");
         pairs.put("]", "[");
         pairs.put("}", "{");
