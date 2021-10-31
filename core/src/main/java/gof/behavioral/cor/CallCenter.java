@@ -5,10 +5,17 @@ public class CallCenter {
     private Operator firstOperator;
 
     public CallCenter() {
-        firstOperator = new HumanOperatorImpl(
-                "Вася", new HumanOperatorImpl(
-                "Маша", new HumanOperatorImpl(
-                "Петя", new RobotOperatorImpl())));
+        Operator firstOperator = new HumanOperatorImpl("Вася");
+        Operator secondOperator = new HumanOperatorImpl("Маша");
+        Operator thirdOperator = new HumanOperatorImpl("Петя");
+        Operator fourthOperator = new HumanOperatorImpl("Оля");
+        Operator robotOperator = new RobotOperatorImpl();
+
+        firstOperator
+                .append(secondOperator)
+                .append(thirdOperator)
+                .append(fourthOperator)
+                .append(robotOperator);
     }
 
     public void answerIncomingCall(Call call) {
