@@ -3,7 +3,7 @@ package gof.behavioral.cor;
 public interface Operator {
     void answer(Call call);
 
-    boolean isOnCall();
+    Boolean isOnCall();
 
-    Operator append(Operator next);
+    void setNextOperator(Operator next);
 }

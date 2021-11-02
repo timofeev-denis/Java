@@ -11,14 +11,13 @@ public class HumanOperatorImpl implements Operator {
     }
 
     @Override
-    public boolean isOnCall() {
+    public Boolean isOnCall() {
         return onCall;
     }
 
     @Override
-    public Operator append(Operator next) {
+    public void setNextOperator(Operator next) {
         this.next = next;
-        return this;
     }
 
     @Override

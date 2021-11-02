@@ -11,11 +11,10 @@ public class CallCenter {
         Operator fourthOperator = new HumanOperatorImpl("Оля");
         Operator robotOperator = new RobotOperatorImpl();
 
-        firstOperator
-                .append(secondOperator)
-                .append(thirdOperator)
-                .append(fourthOperator)
-                .append(robotOperator);
+        firstOperator.setNextOperator(secondOperator);
+        secondOperator.setNextOperator(thirdOperator);
+        thirdOperator.setNextOperator(fourthOperator);
+        fourthOperator.setNextOperator(robotOperator);
     }
 
     public void answerIncomingCall(Call call) {

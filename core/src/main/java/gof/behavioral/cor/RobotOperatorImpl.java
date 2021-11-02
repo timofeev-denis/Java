@@ -7,12 +7,12 @@ public class RobotOperatorImpl implements Operator {
     }
 
     @Override
-    public boolean isOnCall() {
+    public Boolean isOnCall() {
         return false;
     }
 
     @Override
-    public Operator append(Operator next) {
-        return null;
+    public void setNextOperator(Operator next) {
+        throw new UnsupportedOperationException("Это последний оператор");
     }
 }
